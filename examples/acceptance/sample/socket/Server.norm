@@ -1,0 +1,35 @@
+package sample.socket
+
+import micronaut.inject.context.applicationContextRun
+import micronaut.inject.javaStringArrayNew
+import micronaut.runtime.runtime.server.EmbeddedServer
+import micronaut.websocket.WebSocketSession
+import micronaut.websocket.annotation.OnMessage
+import micronaut.websocket.annotation.ServerWebSocket
+import std.concurrent.awaitCancellation
+import std.collections.MutableMap
+import std.collections.mutableMap
+
+@ServerWebSocket(value: "/echo")
+class EchoSocket {
+  @OnMessage()
+  Void onMessage(String message, WebSocketSession session) {
+    session.sendAsync(arg0: "echo:" + message)
+  }
+}
+
+Void main() {
+  var arguments = javaStringArrayNew(size: 0)
+  MutableMap<String?, Any?> properties = mutableMap()
+  properties.put(key: "micronaut.server.port", value: -1)
+  EmbeddedServer? server = applicationContextRun<EmbeddedServer>(
+    arg0: EmbeddedServer.class,
+    arg1: properties,
+    arg2: arguments
+  )
+  if server != null {
+    printLine(server.getURI()?.value ?? "")
+    awaitCancellation()
+    server.close()
+  }
+}

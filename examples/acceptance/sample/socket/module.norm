@@ -1,0 +1,17 @@
+Module module() {
+  return module(
+    name: "sample.socket",
+    version: 1,
+    dependencies: [
+      dependency(repository: "github", name: "micronaut.websocket", version: 1),
+      dependency(repository: "github", name: "micronaut.core", version: 1),
+      dependency(repository: "github", name: "micronaut.http", version: 1),
+      dependency(repository: "github", name: "micronaut.inject", version: 1),
+      dependency(repository: "github", name: "micronaut.runtime", version: 1),
+      dependency(repository: "github", name: "micronaut.server.netty", version: 1),
+      dependency(repository: "github", name: "micronaut.json", version: 1),
+      dependency(repository: "github", name: "micronaut.jackson", version: 1),
+      dependency(repository: "github", name: "micronaut.inject.processor", version: 1)
+    ]
+  )
+}

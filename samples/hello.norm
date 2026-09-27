@@ -1,0 +1,29 @@
+import micronaut.websocket.WebSocketSession
+import micronaut.websocket.annotation.OnMessage
+import micronaut.websocket.annotation.ServerWebSocket
+import micronaut.web.MicronautApplication
+import micronaut.web.MicronautConfig
+import micronaut.web.Micronaut
+import micronaut.web.Server
+import std.application.Application
+
+@ServerWebSocket(value: "/sample/echo")
+public class EchoSocket {
+  @OnMessage()
+  Void onMessage(String message, WebSocketSession session) {
+    session.sendAsync(arg0: "echo:" + message)
+  }
+}
+
+Module module() {
+  module(dependencies: [
+    dependency(repository: "github", name: "micronaut.web", version: 7),
+    dependency(repository: "github", name: "micronaut.websocket", version: 2)
+  ])
+}
+
+public Application application() {
+  return MicronautApplication(config: MicronautConfig(
+    micronaut: Micronaut(server: Server(host: "127.0.0.1", port: 18769))
+  ))
+}

@@ -17,7 +17,7 @@ public class EchoSocket {
 
 Module module() {
   module(dependencies: [
-    dependency(repository: "github", name: "micronaut.web", version: 8),
+    dependency(repository: "github", name: "micronaut.web", version: 9),
     dependency(repository: "github", name: "micronaut.websocket", version: 2)
   ])
 }

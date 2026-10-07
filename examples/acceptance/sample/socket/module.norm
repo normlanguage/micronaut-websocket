@@ -3,15 +3,16 @@ Module module() {
     name: "sample.socket",
     version: 1,
     dependencies: [
+      dependency(repository: "norm", name: "java.base", version: 1),
       dependency(repository: "github", name: "micronaut.websocket", version: 3),
       dependency(repository: "github", name: "micronaut.core", version: 5),
       dependency(repository: "github", name: "micronaut.http", version: 5),
-      dependency(repository: "github", name: "micronaut.inject", version: 4),
+      dependency(repository: "github", name: "micronaut.inject", version: 5),
       dependency(repository: "github", name: "micronaut.runtime", version: 4),
       dependency(repository: "github", name: "micronaut.server.netty", version: 4),
       dependency(repository: "github", name: "micronaut.json", version: 4),
-      dependency(repository: "github", name: "micronaut.jackson", version: 3),
-      dependency(repository: "github", name: "micronaut.inject.processor", version: 4)
+      dependency(repository: "github", name: "micronaut.serde.jackson", version: 5),
+      dependency(repository: "github", name: "micronaut.inject.processor", version: 5)
     ]
   )
 }

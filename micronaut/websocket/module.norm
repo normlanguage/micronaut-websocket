@@ -1,7 +1,9 @@
 Module module() {
   return module(
     name: "micronaut.websocket",
-    version: 2,
+    version: 3,
+    exports: ["annotation.ClientWebSocket", "annotation.OnClose", "annotation.OnError", "annotation.OnMessage", "annotation.OnOpen", "annotation.ServerWebSocket", "WebSocketSession"],
+    dependencies: [dependency(repository: "norm", name: "java.base", version: 1)],
     binding: jarBinding(
       target: mavenJar(
         group: "io.micronaut",
@@ -10,14 +12,14 @@ Module module() {
         resolution: sha256("6b2dc5e48e6a65133a38b845b989f1cac3008073ed3829c649a1873a3bb446fc")
       ),
       api: [
-        jarType(name: "annotation.ClientWebSocket", members: ["subprotocol", "uri", "value", "version"]),
-        jarType(name: "annotation.OnClose", members: []),
-        jarType(name: "annotation.OnError", members: []),
-        jarType(name: "annotation.OnMessage", members: ["maxPayloadLength"]),
-        jarType(name: "annotation.OnOpen", members: []),
-        jarType(name: "annotation.ServerWebSocket", members: ["subprotocols", "uri", "value", "version"]),
+        jarType(name: "io.micronaut.websocket.annotation.ClientWebSocket", alias: "annotation.ClientWebSocket", members: ["subprotocol", "uri", "value", "version"]),
+        jarType(name: "io.micronaut.websocket.annotation.OnClose", alias: "annotation.OnClose", members: []),
+        jarType(name: "io.micronaut.websocket.annotation.OnError", alias: "annotation.OnError", members: []),
+        jarType(name: "io.micronaut.websocket.annotation.OnMessage", alias: "annotation.OnMessage", members: ["maxPayloadLength"]),
+        jarType(name: "io.micronaut.websocket.annotation.OnOpen", alias: "annotation.OnOpen", members: []),
+        jarType(name: "io.micronaut.websocket.annotation.ServerWebSocket", alias: "annotation.ServerWebSocket", members: ["subprotocols", "uri", "value", "version"]),
         jarType(
-          name: "WebSocketSession",
+          name: "io.micronaut.websocket.WebSocketSession", alias: "WebSocketSession",
           members: ["close", "getId", "isOpen", "isSecure", "isWritable"],
           overloads: [
             jarOverload(name: "sendAsync", parameterTypes: ["java.lang.Object"]),

@@ -7,8 +7,8 @@ import micronaut.websocket.WebSocketSession
 import micronaut.websocket.annotation.OnMessage
 import micronaut.websocket.annotation.ServerWebSocket
 import std.concurrent.awaitCancellation
-import std.collections.MutableMap
-import std.collections.mutableMap
+import java.base.util.JavaMap
+import java.base.util.linkedHashMapNew
 
 @ServerWebSocket(value: "/echo")
 class EchoSocket {
@@ -20,15 +20,15 @@ class EchoSocket {
 
 Void main() {
   var arguments = javaStringArrayNew(size: 0)
-  MutableMap<String?, Any?> properties = mutableMap()
-  properties.put(key: "micronaut.server.port", value: -1)
+  JavaMap<String, Any> properties = linkedHashMapNew<String, Any>()!!
+  properties.put(arg0: "micronaut.server.port", arg1: -1)
   EmbeddedServer? server = applicationContextRun<EmbeddedServer>(
     arg0: EmbeddedServer.class,
     arg1: properties,
     arg2: arguments
   )
   if server != null {
-    printLine(server.getURI()?.value ?? "")
+    printLine(server.getURI()?.toString() ?? "")
     awaitCancellation()
     server.close()
   }

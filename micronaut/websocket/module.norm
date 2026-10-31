@@ -1,7 +1,7 @@
 Module module() {
   return module(
     name: "micronaut.websocket",
-    version: 3,
+    version: 4,
     exports: ["annotation.ClientWebSocket", "annotation.OnClose", "annotation.OnError", "annotation.OnMessage", "annotation.OnOpen", "annotation.ServerWebSocket", "WebSocketSession"],
     dependencies: [dependency(repository: "norm", name: "java.base", version: 1)],
     binding: jarBinding(

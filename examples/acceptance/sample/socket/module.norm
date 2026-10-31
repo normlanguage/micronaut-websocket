@@ -4,15 +4,15 @@ Module module() {
     version: 1,
     dependencies: [
       dependency(repository: "norm", name: "java.base", version: 1),
-      dependency(repository: "github", name: "micronaut.websocket", version: 3),
-      dependency(repository: "github", name: "micronaut.core", version: 5),
-      dependency(repository: "github", name: "micronaut.http", version: 5),
-      dependency(repository: "github", name: "micronaut.inject", version: 5),
-      dependency(repository: "github", name: "micronaut.runtime", version: 4),
-      dependency(repository: "github", name: "micronaut.server.netty", version: 4),
-      dependency(repository: "github", name: "micronaut.json", version: 4),
-      dependency(repository: "github", name: "micronaut.serde.jackson", version: 5),
-      dependency(repository: "github", name: "micronaut.inject.processor", version: 5)
+      dependency(repository: "github", name: "micronaut.websocket", version: 4),
+      dependency(repository: "github", name: "micronaut.core", version: 7),
+      dependency(repository: "github", name: "micronaut.http", version: 6),
+      dependency(repository: "github", name: "micronaut.inject", version: 16),
+      dependency(repository: "github", name: "micronaut.runtime", version: 6),
+      dependency(repository: "github", name: "micronaut.server.netty", version: 6),
+      dependency(repository: "github", name: "micronaut.json", version: 6),
+      dependency(repository: "github", name: "micronaut.serde.jackson", version: 9),
+      dependency(repository: "github", name: "micronaut.inject.processor", version: 14)
     ]
   )
 }
